@@ -65,7 +65,7 @@
     function tampilAnalitik(isi, a) {
       isi.innerHTML = '';
       if (!a.peserta) { isi.append(C.el('p', null, 'Belum ada peserta di pilihan ini.')); return; }
-      var P = a.peserta, total = typeof ST !== 'undefined' ? ST.length : 25;
+      var P = a.peserta, total = typeof ST !== 'undefined' ? ST.length : 27;
       isi.append(C.el('div', { 'class': 'ak' },
         C.el('div', null, C.el('b', null, P), C.el('span', null, 'peserta')),
         C.el('div', null, C.el('b', null, a.aktif_7_hari + ' (' + Math.round(a.aktif_7_hari * 100 / P) + '%)'), C.el('span', null, 'aktif 7 hari terakhir')),

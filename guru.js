@@ -54,7 +54,7 @@
     }
 
     async function siswa(b, kelas) {
-      var d = await rpc('guru_siswa', { p_kelas: kelas.id }), total = typeof ST !== 'undefined' ? ST.length : 25;
+      var d = await rpc('guru_siswa', { p_kelas: kelas.id }), total = typeof ST !== 'undefined' ? ST.length : 27;
       if (!d.length) { b.append(C.el('p', null, 'Belum ada siswa. Bagikan kode kelas ' + kelas.kode + '.')); return; }
       var tgl = function (x) { return x ? new Date(x).toLocaleDateString('id-ID') : 'belum pernah'; };
       var baris = d.map(function (s) { return [s.nama || '-', s.email, s.tahap_selesai + '/' + total, s.kuis_total ? s.kuis_benar + '/' + s.kuis_total : '-', s.pra == null ? '-' : s.pra + '%', s.pasca == null ? '-' : s.pasca + '%', s.lulus_pasca ? 'lulus' : '-', s.sertifikat ? 'ya' : '-', s.kesiapan || '-', tgl(s.diubah)]; });
